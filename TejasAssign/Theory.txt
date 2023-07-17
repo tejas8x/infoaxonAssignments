@@ -1,0 +1,31 @@
+What is Liferay?
+=> Liferay is an open source enterprise portal and Java-based web application platform provides a toolset for the development of customizable portals and websites.
+
+Why we use Liferay?
+=> Pre-implemented basic funcionalities required in an App .
+   Easy use and learn .
+   Lots of features and stable .
+   Provides excellent authentication and authorization .
+   
+
+What is the use of portal-ext.properties?
+=> to change the default functionalities and properties provided by Liferay in portal.properties and customize things as we want .
+
+What is the use of data folder in Liferay home?
+=> Stores all the data of application like photos , videos , etc that are used in the application .
+
+
+What is the use of deploy folder in Liferay home?
+=> When we place the activation key in the deploy folder , liferay reads it automatically . The activation key is 
+   basically the paid license for liferay DXP (Paid Version) .
+
+What is the default data base of Liferay?
+=> Hypersonic 
+
+
+How we connect different data bases with Liferay?
+=> By including the database cofigurations in the portal-ext.properties file . 
+
+
+What is different versioning technique for a project?
+=>Major versioning, minor versioning, patch

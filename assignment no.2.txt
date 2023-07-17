@@ -1,0 +1,75 @@
+public float fahrenheitToCelsius(float tempInFahrenheit){
+        
+           float tempInCelsius = 0;
+
+          tempInCelsius  = (tempInFahrenheit-32) *5/9;
+            
+            return tempInCelsius;
+        
+        }
+---------------------------------------------------------------------------
+
+
+ public int[] swapNums(int num1, int num2){
+
+ 
+        
+        num1= num1-num2;
+        num2 =num1+num2;
+        num1= num2-num1;
+   
+	int[] swappedNums = new int[2];
+	swappedNums[0] = num1;
+	swappedNums[1] = num2;       
+
+      return swappedNums; 
+
+}
+------------------------------------------------------------------------------
+
+
+  public static interestCalculator(float roi, int principalAmount, int duration){
+ 
+      double interest = 0;
+     
+       interest = (duration* principalAmount* roi ) /100;
+
+       return interest
+}
+
+
+
+
+
+---------------------------------------------------------------------------------
+
+
+  public String generateEmployeeCode(String doj, String dob){
+
+        StringBuilder empCode = new StringBuilder();
+       
+
+	int joiningMonth = 0;
+                       joiningMonth =  Integer.parseInt(dateOfJoining.substring(3, 5));
+        int joiningYear =  0;
+                       joiningYear  =  Integer.parseInt(dateOfJoining.substring(8));
+
+        
+ 	
+
+	int birthDay = Integer.parseInt(dateOfBirth.substring(0, 2));
+        int birthMonth = Integer.parseInt(dateOfBirth.substring(3, 5));
+        int birthYear = Integer.parseInt(dateOfBirth.substring(6));
+         
+ 	sumOfDob = 0;
+ 		sumOfDob = birthDay + birthMonth + birthYear;
+ 
+        return empCode.append(joiningMonth).append(joiningYear).append(sumOfDob); 
+
+}
+
+
+
+
+
+

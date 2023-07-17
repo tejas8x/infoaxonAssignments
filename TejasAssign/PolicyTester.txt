@@ -1,0 +1,117 @@
+package week2;
+
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.*;
+
+import week2.*;
+public class Test {
+	
+	
+     static boolean loop = true;
+	
+	 public static void main(String args[]) {
+		 
+      		
+		//creating a map to map policy objects to their ids.                     
+		HashMap<Integer,Policy> policyMap = new HashMap<>();        
+		
+		
+		//creating a few objects of policy
+		Policy p1 = new Policy(111, 5678, "sds", LocalDate.of(2006, 02, 03), LocalDate.of(2026, 02, 03), LocalDate.of(2023, 07, 31), "active", 3244.345	, 2, "yearly", "paid");
+		Policy p2 = new Policy(222, 5678, "sds",LocalDate.of(2006, 02, 03), LocalDate.of(2025, 02, 03), LocalDate.of(2023, 07, 26), "expired", 3244.345	, 2, "yearly", "payment due");
+		Policy p3 = new Policy(333, 5678, "sds", LocalDate.of(2006, 02, 03), LocalDate.of(2028, 02, 03), LocalDate.of(2023, 07, 15), "active", 3244.345	, 2, "yearly", "paid");
+		
+		
+		//putting the objects in the map
+			policyMap.put(p1.getPolicyId(), p1);
+			policyMap.put(p2.getPolicyId(), p2);
+			policyMap.put(p3.getPolicyId(), p3);
+		 	
+		 
+			
+	   //loop to show the main menu everytime, unless user chooses to exit		
+		 while(loop) {
+			 
+			 System.out.println("enter 1 -> get policy details by policyId" 	+"\n"+    //main menu
+					 			"enter 2 -> check status by id"  				 		+"\n"+
+					 			"enter 3 -> check payment status by id"			+"\n"+ 
+					 			"enter 4 -> check payment due date" 				+"\n"+
+					 			"enter 5 -> add new policy" 							+"\n"+
+					 			"enter 6 -> EXIT");
+			 
+			 Scanner sc = new Scanner(System.in);
+			 
+			 int optionChosen = sc.nextInt();
+			 
+			 
+			 
+			 switch (optionChosen) {
+			case 1:                                                             //to display complete policy details as per id
+				System.out.println("enter the id");
+				int id = sc.nextInt();
+				
+				Policy.getPolicyDetails(id, policyMap);
+				
+			
+				break;
+				
+			case 2:																//to display policy status as per id
+				System.out.println("enter the policy ID");
+				int id1 = sc.nextInt();
+				 
+				Policy.getPolicyStatus(id1, policyMap);  
+				
+				break;
+				
+				
+			case 3:																//to display the payment status as per id
+				System.out.println("enter the policy ID");
+				int id2 = sc.nextInt();
+				
+				Policy.getPaymentStatus(id2, policyMap);
+				
+				break;
+				
+				
+			case 4: 															//to display payment due date of any policy
+				System.out.println("enter the policy ID");
+				int id3 = sc.nextInt();
+				
+				Policy.getPaymentDueDate(id3, policyMap);
+				
+				 break;
+		        
+		        
+		        
+		        
+			case 5:                                                             // adding a new policy 
+				System.out.println("enter  policyId,  policyNumber,  policyLob,policyCreateDate,  policyDueDate,policyPaymentDate, "
+					            	+ " policyStatus, policyPremiumAmount,  policyTenure, policyPaymentFrequency,  policyPaymentStatus");
+				
+				
+				Policy p4 = new Policy(sc.nextInt(), sc.nextInt(), sc.nextLine(), LocalDate.parse(sc.next()), LocalDate.parse(sc.next()), LocalDate.parse(sc.next()), sc.next(), sc.nextDouble(), sc.nextInt(), sc.next(), sc.next());
+				
+				if(policyMap.containsKey(p4.getPolicyId())) {
+					System.out.println("policy id aready exits!!");
+				}
+				else {
+					policyMap.put(p4.getPolicyId(), p4);
+					System.out.println("policy added!!" +"\n\n");
+				}
+				break;
+		         
+		        case 6:          													//option to exit main menu
+			        loop = false;
+				
+		        break;
+		         }
+		 }
+		 System.out.println("THANK YOU !!!");
+		 
+	 }
+
+}

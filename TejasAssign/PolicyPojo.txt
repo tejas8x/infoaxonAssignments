@@ -1,0 +1,210 @@
+package week2;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import week2.Test.*;
+
+public class Policy {
+	
+	
+
+	
+	private int policyId;                      //attributes
+    private int policyNumber;
+    private String policyLob;
+    private LocalDate policyCreateDate;
+    private LocalDate policyDueDate;
+    private LocalDate policyPaymentDate;
+    private String policyStatus;
+    private double policyPremiumAmount;
+    private double policyMaturityAmount;
+    private double policySumAssured;
+    private int policyTenure;
+    private String policyPaymentFrequency;
+    private String policyPaymentStatus;
+    
+
+    
+                                               
+    											//constructor
+    public Policy() {
+       super();
+    }
+
+    										
+                                               // parameterized constructor
+    public Policy(int policyId, int policyNumber, String policyLob,LocalDate policyCreateDate, LocalDate policyDueDate,LocalDate policyPaymentDate, String policyStatus,double policyPremiumAmount, int policyTenure,String policyPaymentFrequency, String policyPaymentStatus) {
+    	super();
+												this.policyId = policyId;
+												this.policyNumber = policyNumber;
+												this.policyLob = policyLob;
+												this.policyCreateDate = policyCreateDate;
+												this.policyDueDate = policyDueDate;
+												this.policyPaymentDate = policyPaymentDate;
+												this.policyStatus = policyStatus;
+												this.policyPremiumAmount = policyPremiumAmount;
+												this.policyTenure = policyTenure;
+												this.policyPaymentFrequency = policyPaymentFrequency;
+												this.policyPaymentStatus = policyPaymentStatus;
+											}
+
+
+
+	                                           //getter setters
+	public int getPolicyId() {
+		return policyId;
+	}
+	public void setPolicyId(int policyId) {
+		this.policyId = policyId;
+	}
+	public int getPolicyNumber() {
+		return policyNumber;
+	}
+	public void setPolicyNumber(int policyNumber) {
+		this.policyNumber = policyNumber;
+	}
+	public String getPolicyLob() {
+		return policyLob;
+	}
+	public void setPolicyLob(String policyLob) {
+		this.policyLob = policyLob;
+	}
+	public LocalDate getPolicyCreateDate() {
+		return policyCreateDate;
+	}
+	public void setPolicyCreateDate(LocalDate policyCreateDate) {
+		this.policyCreateDate = policyCreateDate;
+	}
+	public LocalDate getPolicyDueDate() {
+		return policyDueDate;
+	}
+	public void setPolicyDueDate(LocalDate policyDueDate) {
+		this.policyDueDate = policyDueDate;
+	}
+	public LocalDate getPolicyPaymentDate() {
+		return policyPaymentDate;
+	}
+	public void setPolicyPaymentDate(LocalDate policyPaymentDate) {
+		this.policyPaymentDate = policyPaymentDate;
+	}
+	public String getPolicyStatus() {
+		return policyStatus;
+	}
+	
+	public void setPolicyStatus(String policyStatus) {
+		this.policyStatus = policyStatus;
+	}
+	public double getPolicyPremiumAmount() {
+		return policyPremiumAmount;
+	}
+	public void setPolicyPremiumAmount(double policyPremiumAmount) {
+		this.policyPremiumAmount = policyPremiumAmount;
+	}
+	public double getPolicyMaturityAmount() {
+		return policyMaturityAmount;
+	}
+	public void setPolicyMaturityAmount(double policyMaturityAmount) {
+		this.policyMaturityAmount = policyMaturityAmount;
+	}
+	public double getPolicySumAssured() {
+		return policySumAssured;
+	}
+	public void setPolicySumAssured(double policySumAssured) {
+		this.policySumAssured = policySumAssured;
+	}
+	public int getPolicyTenure() {
+		return policyTenure;
+	}
+	public void setPolicyTenure(int policyTenure) {
+		this.policyTenure = policyTenure;
+	}
+	
+	public String getPolicyPaymentFrequency() {
+		return policyPaymentFrequency;
+	}
+	
+	public void setPolicyPaymentFrequency(String policyPaymentFrequency) {
+		this.policyPaymentFrequency = policyPaymentFrequency;
+	}
+	
+	public String getPolicyPaymentStatus() {
+		return policyPaymentStatus;
+	}
+	
+	public void setPolicyPaymentStatus(String policyPaymentStatus) {
+		this.policyPaymentStatus = policyPaymentStatus;
+	}
+
+
+                                                    // overriding toString
+	@Override
+	public String toString() {
+		return "Policy [policyId=" + policyId + ", policyNumber=" + policyNumber + ", policyLob=" + policyLob
+				+ ", policyCreateDate=" + policyCreateDate + ", policyDueDate=" + policyDueDate + ", policyPaymentDate="
+				+ policyPaymentDate + ", policyStatus=" + policyStatus + ", policyPremiumAmount=" + policyPremiumAmount
+				+ ", policyMaturityAmount=" + policyMaturityAmount + ", policySumAssured=" + policySumAssured
+				+ ", policyTenure=" + policyTenure + ", policyPaymentFrequency=" + policyPaymentFrequency
+				+ ", policyPaymentStatus=" + policyPaymentStatus + "]";
+	}
+
+
+    
+	public static void getPolicyStatus(int id, HashMap<Integer,Policy> policyMap ) {
+		if(policyMap.containsKey(id)) {
+			System.out.println(policyMap.get(id).getPolicyStatus() +"\n\n");
+		}
+		else {
+			System.out.println("policy not found!!!" +""+ "\n\n");
+		}
+	}
+	
+	
+	public static void getPaymentStatus(int id, HashMap<Integer,Policy> policyMap) {
+		if(policyMap.containsKey(id)) {
+			System.out.println(policyMap.get(id).getPolicyPaymentStatus() +"\n\n");
+		}
+		else {
+			System.out.println("policy not found!!!" +""+ "\n\n");
+		}
+	}
+	
+	
+	public static void getPaymentDueDate(int id, HashMap<Integer,Policy> policyMap) {
+		if(policyMap.containsKey(id)) {
+			System.out.println("your policy premium is due in "  
+								+ChronoUnit.DAYS.between(LocalDate.now(),policyMap.get(id).getPolicyPaymentDate())
+								+" days, on " +policyMap.get(id).getPolicyPaymentDate()+ "\n\n");
+		}
+		else {
+			System.out.println("policy not found!!!" +""+ "\n\n");
+		}
+	}
+	
+
+
+
+   public static void getPolicyDetails(int id, HashMap<Integer,Policy> policyMap) {
+		if(policyMap.containsKey(id)) {
+			System.out.println(policyMap.get(id) +"\n\n");
+		}
+		else {
+			System.out.println("policy not found!!!" +""+ "\n\n");
+		}
+   }
+   
+   
+   
+   
+   
+   
+   }
+	
+	 
+    
+  
+
+
+

@@ -1,0 +1,108 @@
+
+
+
+
+----------------------------------------------------
+ public long addNum(int num1, int num2){                        //add 2 integers
+ 
+	long sumOfNums = 0;
+	sumOfNums =  num1 + num2;
+	return sumOfNums;
+
+}
+--------------------------------------------------------
+
+public String getDay(int num){
+	
+	if(num <1  || num >7) return " ";
+	Map<Integer, String> daysOfTheWeek = new HashMap<>();
+
+
+daysOfTheWeek.put(1,"Sunday");
+daysOfTheWeek.put(2,"Monday");
+daysOfTheWeek.put(3,"Tuesday");
+daysOfTheWeek.put(4,"Wednesday");
+daysOfTheWeek.put(5,"Thursday");
+daysOfTheWeek.put(6,"Friday");
+daysOfTheWeek.put(7,"Saturday");
+ 
+	
+ 
+ 	return daysOfTheWeek.getValue(num);
+	
+}
+
+-----------------------------------------------
+
+
+public void printTable(int num){                       // print a table
+	
+	for(int index=1; index<=10; index++){
+	
+		System.out.println(num+ "X" +index+ "=" +num*index );
+       }
+}
+
+--------------------------------------------------
+
+
+public boolean isArmstrong(int num){                         // check armstrong
+ 	
+	long sumOfCubes=0;
+	int temp = num;
+	int lastDigit =0;
+
+	while(temp >0){
+	
+		lastDigit = temp % 10;
+		sumOfCubes += Math.pow(lastDigit , 3);
+        	temp = temp/10;
+      }
+ 
+ 	if (sumOfCubes == num){
+	    return true;
+	}
+	else{
+	     return false;
+	}
+}
+
+-------------------------------------------------------------
+
+
+public Map<String,Integer> getLobs() {
+
+   Map<String, Integer> lobs = new HashMap<>();
+
+lobs.put("life Insurance",101);
+lobs.put("Vehicle Insurance",102);
+lobs.put("Property Insurance",103);
+lobs.put("Property Insurance",104);
+
+    return lobs;
+   
+	
+}
+
+
+
+
+public void printLobs() {
+
+   Map<String, Integer> lobs = new HashMap<>();
+
+lobs.put("life Insurance",101);
+lobs.put("Vehicle Insurance",102);
+lobs.put("Property Insurance",103);
+lobs.put("Property Insurance",104);
+
+
+for (Map.Entry<String,Integer>  x : lobs.entrySet()) {
+ 
+            
+            System.out.println("key =" +x.getKey()+   "value= "   +x.getValue());
+	
+}
+
+
+

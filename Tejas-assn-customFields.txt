@@ -1,0 +1,166 @@
+Q.1> What is custom fields?
+
+custom fields are the additional fields that we can add to our site for capturing any data this is specific
+to that perticular site, or demand from the client.
+
+liferay.workspace.home.dir =F:\\tomcat\\liferay-dxp-7.4.13.u70
+org.gradle.java.home=C:\\Program Files\\Java\\jdk1.8.0_144
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.2>How many custom fields in Liferay?
+
+Blogs Entry
+Calendar Event
+Document
+Documents Folder
+Knowledge Base Article
+Knowledge Base Folder
+Message Boards Category
+Message Boards Message
+Organization
+Page
+Role
+Site
+User
+User Group
+Web Content Article
+Web Content Folder
+Wiki Page
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+Q.3> How to create and configure the value of site custom field in Liferay?
+
+1>first we have to go to control panel and look for the custom fields option.
+2> choose a resource -> click the (+)  button -> Choose a field type: Text Area, Input Field, Dropdown, Checkbox, Radio, Geolocation, Date, True/False.
+3> add teh required details
+4> Choose the Data Type of field
+5> click save.
+ 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+Q4.> What are different tables used to save the data of custom fields in Liferay?
+
+the tables which are used to save teh data from custom fields in liferayy are -
+a)expandoTable
+b)expandoRow
+c)expandoValue
+d)expandoColumn
+
+ 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+Q.5> What are different important tables in Liferay? Write the tables name and their use.
+Following are some important tables in LifeRay :->
+
+ 
+
+assetentry--> table which has entry of all the assets in the liferay with basic information for each asset(fileupload,content details etc)
+ 
+
+backgroundtask-->entry of background tasks in this table
+
+ 
+
+blogentry will have R blog entries
+
+ 
+
+
+dlfileentry-->entry of document in this table
+
+ 
+
+dlfileentrymetadata-->Has basic metadata  info about file
+
+ 
+
+expandotable --for custom fields information storage
+
+ 
+
+expandocolumn--for custom fields information storage
+
+ 
+
+expandorow   --for custom fields information storage
+
+ 
+
+expandovalue --for custom fields information storage
+
+ 
+
+journalfolder--folder's content
+
+ 
+
+release_->portlet register under this
+
+ 
+
+resourceaction-->action performed
+
+ 
+
+resourcepermission-->permission for the resource
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+6)What is groupId and companyId in Liferay and what is the use?
+ Group IDs in Liferay are unique ids assigned to groups of related resources, such as organizations, 
+sites, communities, or user groups, within the portal, allowing for organization, access control, and management of content and functionality.
+
+
+companyId is specific for company
+
+ 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+7) Which tables are used to handle permission and different actions of resources in Liferay
+The act of granting the ability to perform an action to a specific role is the act of granting a permission. In Liferay, permissions are not granted to directly to users. Instead, permissions are granted to roles. Roles, in turn, can be assigned to specific users, sites, organizations, or user groups.
+Here are some commonly used tables for handling permissions and actions in Liferay:
+
+ 
+
+ResourcePermission table stores permissions for individual resources. It contains information such as the resource's primary key, the scope of the permission (e.g., individual resource, group, company), the permission type (e.g., view, delete, update), and the roles or users assigned the permission.
+
+ 
+
+ResourceAction table stores the available actions that can be performed on resources. It includes actions such as view, delete, update, and custom actions defined by the application. Each action is associated with a resource name and a bitwise value.
+
+ 
+
+Resource  table maintains information about the available resources in Liferay. It includes details such as the resource's primary key, the resource name, the resource type, and any additional attributes associated with the resource.
+
+ 
+
+ResourceTypePermission  table maps the resource types to the available actions. It associates a resource type with an action ID from the ResourceAction table.
+
+ 
+
+Role_ table stores information about the roles defined in Liferay. Roles represent a set of permissions assigned to users or groups. It includes details such as the role's primary key, the role name, and other attributes.
+
+ 
+
+UserGroupRoletable maps users and groups to their assigned roles. It associates a user or group ID with a role ID.
+
+ 
+
+---------------------------------------------------------------------
