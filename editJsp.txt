@@ -1,0 +1,125 @@
+
+<%@ include file="/init.jsp"%>
+<%@ include file="/common.jsp"%>
+<portlet:actionURL name="saveUser" var="saveUserURL">
+
+</portlet:actionURL>
+
+<form action="${saveUserURL}" method="post" onsubmit="return validateForm()" name="enrollForm" >
+
+	<div class="enroll">
+		<div class="row">
+			<div class="col-md-4">
+				<label><liferay-ui:message key="first.name" /></label> <input
+					type="text" name="<portlet:namespace/>firstName"
+					id="<portlet:namespace/>firstName" class="form-control" value=""
+					onchange="firstName()" placeholder="Enter your First Name" /> <span
+					id="<portlet:namespace />firstName-error"
+					name="<portlet:namespace/>firstName-error"></span>
+			</div>
+			<div class="col-md-4">
+				<label><liferay-ui:message key="middle.name" /></label> <input
+					type="text" name="<portlet:namespace/>middleName"
+					id="<portlet:namespace/>middletName" class="form-control" value=""
+					onchange="firstName();" placeholder="Enter your middle Name" /> <span
+					id="<portlet:namespace />firstName-error"
+					name="<portlet:namespace/>firstName-error"></span>
+
+			</div>
+			<div class="col-md-4">
+				<label><liferay-ui:message key="last.name" /></label> <input
+					type="text" name="<portlet:namespace/>lastName"
+					id="<portlet:namespace/>lastName" class="form-control" value=""
+					onchange="firstName());" placeholder="Enter your last Name" /> <span
+					id="<portlet:namespace />firstName-error"
+					name="<portlet:namespace/>firstName-error"></span>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<label><liferay-ui:message key="mobile.num" /></label> <input
+					type="text" name="<portlet:namespace/>mobileNumber"
+					id="<portlet:namespace/>mobileNumber" class="form-control" value=""
+					onchange="mobileNumber();" placeholder="Enter your mobile number" /> <span
+					id="<portlet:namespace />mobileNumber-error"
+					name="<portlet:namespace/>mobileNumber-error"></span>
+			</div>
+			<div class="col-md-4">
+				<label><liferay-ui:message key="email.address" /></label> <input
+					type="text" name="<portlet:namespace/>emailAddress"
+					id="<portlet:namespace/>emailAddress" class="form-control" value=""
+					onchange="emailAddress();" placeholder="Enter your email address" />
+				<span id="<portlet:namespace />emailAddress-error"
+					name="<portlet:namespace/>emailAddress-error"></span>
+			</div>
+			<div class="col-md-4">
+				<label><liferay-ui:message key="dob" /></label> <input type="text"
+					name="<portlet:namespace/>dob" id="<portlet:namespace/>dob"
+					class="form-control" value="" onchange=""
+					placeholder="Enter your dob" /> <span
+					id="<portlet:namespace />lastName-error"
+					name="<portlet:namespace/>lastName-error"></span>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<label><liferay-ui:message key="country" /></label> <input
+					type="text" name="<portlet:namespace/>country"
+					id="<portlet:namespace/>country" class="form-control" value=""
+					onchange="" placeholder="Enter your country" /> <span
+					id="<portlet:namespace />lastName-error"
+					name="<portlet:namespace/>lastName-error"></span>
+			</div>
+			<div class="col-md-4">
+				<label><liferay-ui:message key="state" /></label> <input
+					type="text" name="<portlet:namespace/>state"
+					id="<portlet:namespace/>state" class="form-control" value=""
+					onchange="" placeholder="Enter your state" /> <span
+					id="<portlet:namespace />lastName-error"
+					name="<portlet:namespace/>lastName-error"></span>
+			</div>
+			<div class="col-md-4">
+				<label><liferay-ui:message key="city" /></label> <input type="text"
+					name="<portlet:namespace/>city" id="<portlet:namespace/>city"
+					class="form-control" value="" onchange=""
+					placeholder="Enter your city" /> <span
+					id="<portlet:namespace />lastName-error"
+					name="<portlet:namespace/>lastName-error"></span>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<label><liferay-ui:message key="pincode" /></label> <input
+					type="text" name="<portlet:namespace/>pincode"
+					id="<portlet:namespace/>pincode" class="form-control" value=""
+					onchange="" placeholder="Enter your pincode" /> <span
+					id="<portlet:namespace />lastName-error"
+					name="<portlet:namespace/>lastName-error"></span>
+			</div>
+			<div class="col-md-4">
+				<label><liferay-ui:message key="nationalId" /></label> <input
+					type="text" name="<portlet:namespace/>nationalId"
+					id="<portlet:namespace/>nationalId" class="form-control" value=""
+					onchange="" placeholder="Enter your national ID" /> <span
+					id="<portlet:namespace />lastName-error"
+					name="<portlet:namespace/>lastName-error"></span>
+			</div>
+
+
+		</div>
+
+	</div>
+	<br>
+	<div align="center">
+		
+		<button type="submit" class=" button-74">SAVE</button>
+		
+		
+		<button type="reset" class=" button-74">RESET</button>
+		
+	</div>
+</form>

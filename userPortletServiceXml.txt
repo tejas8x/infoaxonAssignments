@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.service.user">
+	<namespace>MyNewPractice</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="NewUser" table="New_User_Enrollment" remote-service="true" uuid="true">
+
+		<column name="newUserId" primary="true" type="long" />
+		
+		<column name="firstName"  type="String" />
+		<column name="middleName"  type="String" />
+		<column name="lastName"  type="String" />
+		<column name="emailAddress"  type="String" />
+		<column name="mobileNumber"  type="String" />
+		<column name="dob"  type="String" />
+		<column name="country" type="String" />
+		<column name="state" type="String" />
+		<column name="city"  type="String" />
+		<column name="pincode"  type="String" />
+		<column name="nationalId"  type="String" />
+
+		<!-- Finder methods -->
+
+		<finder name="EmailAddress" return-type="NewUser">
+			<finder-column name="emailAddress" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+</service-builder>

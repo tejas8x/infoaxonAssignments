@@ -1,0 +1,35 @@
+<%@ include file="/init.jsp" %>
+
+
+<portlet:renderURL var="createEditRender">
+		<portlet:param name="mvcRenderCommandName" value="/create/edit"/>
+</portlet:renderURL>
+
+<div><br></div>
+<form action="${createEditRender}" method="post" name="createButton" align="center">
+ <button type="submit" class="button-89" >Add New User</button>
+</form>
+
+<liferay-ui:search-container delta="10" 
+emptyResultsMessage="no-entries" total="${totalNewUsers}">
+
+<liferay-ui:search-container-results results="${entries}"/>
+
+		<liferay-ui:search-container-row
+		className="com.service.user.model.NewUser"
+		keyProperty="newUserId" modelVar="entry" escapedModel="<%=true%>">
+		
+		<liferay-ui:search-container-column-text name="First Name" property="firstName"/>
+		<liferay-ui:search-container-column-text name="Last Name" property="lastName"/>
+		<liferay-ui:search-container-column-text name="Email Address" property="emailAddress"/>
+		<liferay-ui:search-container-column-text name="Mobile Number" property="mobileNumber"/>
+		<liferay-ui:search-container-column-text name="National ID" property="nationalId"/>
+		
+		</liferay-ui:search-container-row>
+		
+		  
+
+        <liferay-ui:search-iterator searchContainer="<%= searchContainer %>" paginate="<%= true %>"/>
+        
+</liferay-ui:search-container>
+

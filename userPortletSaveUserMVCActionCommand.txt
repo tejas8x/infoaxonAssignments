@@ -1,0 +1,65 @@
+package com.lr.revisited.portlet;
+
+
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.lr.revisited.constants.UserControllerPortletKeys;
+import com.service.user.service.NewUserLocalServiceUtil;
+
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
+
+import org.osgi.service.component.annotations.Component;
+
+
+@Component(
+	        immediate = true,
+	        property = 
+	    { "javax.portlet.name=" + UserControllerPortletKeys.USERCONTROLLER,
+		  "mvc.command.name=saveUser" },
+	    service = MVCActionCommand.class)
+
+public class SaveUserActionMvcCommand extends BaseMVCActionCommand {
+
+	@Override
+	protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
+		
+		String firstName = ParamUtil.getString(actionRequest, "firstName");
+		String middleName = ParamUtil.getString(actionRequest, "middleName");
+		String lastName = ParamUtil.getString(actionRequest, "lastName");
+		String mobileNumber = ParamUtil.getString(actionRequest, "mobileNumber");
+		String emailAddress = ParamUtil.getString(actionRequest, "emailAddress");
+		String dob = ParamUtil.getString(actionRequest, "dob");
+		String country = ParamUtil.getString(actionRequest, "country");
+		String city = ParamUtil.getString(actionRequest, "city");
+		String state = ParamUtil.getString(actionRequest, "state");
+		String pincode = ParamUtil.getString(actionRequest, "pincode");
+		long nationalId = ParamUtil.getLong(actionRequest, "nationalId");
+			
+         System.out.println(firstName);
+		
+		JSONObject jsonObject =  JSONFactoryUtil.createJSONObject();
+		
+		jsonObject.put("firstName", firstName);
+		jsonObject.put("middleName", middleName);
+		jsonObject.put("lastName", lastName);
+		jsonObject.put("mobileNumber", mobileNumber);
+		jsonObject.put("emailAddress", emailAddress);
+		jsonObject.put("dob", dob);
+		jsonObject.put("country", country);
+		jsonObject.put("city", city);
+		jsonObject.put("state", state);
+		jsonObject.put("pincode", pincode);
+		jsonObject.put("nationalId", nationalId);
+		
+			NewUserLocalServiceUtil.addNewUser(jsonObject);
+	
+		
+	}
+	
+	
+
+}
