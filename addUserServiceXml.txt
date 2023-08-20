@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.practice.common.service">
+	<namespace>Practice</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="UserExt" remote-service="true" uuid="true" table="Practice_User_Ext">
+
+		<!-- PK fields -->
+
+		<column name="userExtId" primary="true" type="long" />
+		
+		<column name="userId" type="long" />
+		<column name="employeeId" type="String" />
+		<column name="designation" type="String" />
+		<column name="reportee" type="String" />
+		<column name="location" type="String" />
+		<column name="emailAddress" type="String" />
+		<!-- Finder methods -->
+
+		<finder name="EmailAddress" return-type="UserExt">
+			<finder-column name="emailAddress" />
+		</finder>
+	</entity>
+</service-builder>
