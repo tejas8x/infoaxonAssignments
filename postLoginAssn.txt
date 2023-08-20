@@ -1,0 +1,68 @@
+/**
+ * Copyright 2000-present Liferay, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.lr.revisited.portlet;
+
+import com.liferay.portal.kernel.events.ActionException;
+import com.liferay.portal.kernel.events.LifecycleAction;
+import com.liferay.portal.kernel.events.LifecycleEvent;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.service.UserLocalServiceUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.osgi.service.component.annotations.Component;
+
+import post.login.audit.service.service.LoginEventLocalServiceUtil;
+
+@Component(
+	immediate = true,
+	property = {
+		"key=login.events.post"
+	},
+	service = LifecycleAction.class
+)
+public class PostLoginAudit implements LifecycleAction  {
+
+	@Override
+	public void processLifecycleEvent(LifecycleEvent lifecycleEvent)
+		throws ActionException {
+
+		 try {
+	            HttpServletRequest request = lifecycleEvent.getRequest();
+
+	            // Retrieve user information
+	            long userId = PortalUtil.getUserId(request);
+	            User user = UserLocalServiceUtil.getUser(userId);
+	            String login = user.getLogin();
+	            
+//	            String pass = user.getPassword();
+//	            String pass2 = user.getPasswordUnencrypted();
+	            
+
+	            JSONObject jsonObject =  JSONFactoryUtil.createJSONObject();
+	            jsonObject.put("userId", userId);
+	            jsonObject.put("loginId", login); 
+	            
+	            LoginEventLocalServiceUtil.addNewLoginEvent(jsonObject);
+	        } catch (Exception e) {
+	           e.printStackTrace();
+	        }
+	}
+
+}
